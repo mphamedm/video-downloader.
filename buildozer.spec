@@ -36,6 +36,9 @@ android.api = 33
 # (int) Minimum API required
 android.minapi = 21
 
+# (str) Android NDK version to use (إجبار النظام على الإصدار المستقر r25b)
+android.ndk = 25b
+
 # (bool) Accept SDK license automatically
 android.accept_sdk_license = True
 
