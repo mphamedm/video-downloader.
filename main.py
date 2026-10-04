@@ -49,7 +49,7 @@ class DownloaderLayout(BoxLayout):
     def start_download(self, instance):
         url = self.url_input.text.strip()
         if not url:
-            self.status_label.text = "الحالة: يرجى إدخال رابط صحيح!"
+            self.status_label.text = "الحالة: يرجى إدخل رابط صحيح!"
             return
 
         self.status_label.text = "الحالة: جاري بدء التنزيل..."
