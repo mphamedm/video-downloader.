@@ -18,8 +18,8 @@ source.include_exts = py,png,jpg,kv,atlas
 # (str) Application version
 version = 0.1
 
-# (list) Application requirements (تثبيت إصدار بايثون المستقر لتفادي مشاكل 3.14)
-requirements = python3==3.11.9,kivy==2.3.1,yt-dlp,pyjnius,requests,certifi
+# (list) Application requirements
+requirements = python3,kivy,yt-dlp,pyjnius,requests,certifi
 
 # (str) Supported orientation
 orientation = portrait
