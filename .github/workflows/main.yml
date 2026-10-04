@@ -25,11 +25,10 @@ jobs:
           openjdk-17-jdk zip unzip autoconf libtool cmake pkg-config \
           python3-dev python3-setuptools
         pip install --upgrade pip
-        pip install cython==0.29.33 buildozer
+        pip install "cython<3.0.0" buildozer
 
-    - name: Pre-accept Android SDK Licenses & Build APK
+    - name: Build APK
       run: |
-        # قبول كافة تراخيص SDK تلقائياً وتجنب التوقف التفاعلي
         export APP_ACCEPT_SDK_LICENSE=1
         yes | buildozer -s android debug
 
