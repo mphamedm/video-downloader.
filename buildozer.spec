@@ -1,53 +1,52 @@
 [app]
 
-# (str) اسم التطبيق الذي سيظهر على الهاتف
+# (str) Title of your application
 title = Video Downloader
 
-# (str) اسم الحزمة (بدون مساحات أو رموز خاصة)
+# (str) Package name
 package.name = videodownloader
 
-# (str) نطاق الحزمة (Domain)
+# (str) Package domain (needed for android/ios packaging)
 package.domain = org.downloader
 
-# (str) مجلد الكود المصدري (المجلد الحالي)
+# (str) Source code where the main.py live
 source.dir = .
 
-# (list) امتدادات الملفات التي سيتم تضمينها
+# (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
 
-# (str) إصدار التطبيق
+# (str) Application version
 version = 0.1
 
-# (list) المكتبات والمتطلبات الضرورية للتطبيق
-# ملاحظة: تم إضافة openssl و certifi لضمان عمل الاتصالات المشفّرة (HTTPS) في yt-dlp
-requirements = python3,kivy,yt-dlp,pyjnius,requests,certifi,openssl
+# (list) Application requirements
+# تم حذف openssl لمنع التعارضات مع NDK والاكتفاء بـ certifi للتشفير
+requirements = python3,kivy,yt-dlp,pyjnius,requests,certifi
 
-# (str) اتجاه الشاشة (عمودي)
+# (str) Supported orientation
 orientation = portrait
 
-# (bool) هل يعمل التطبيق في وضع الشاشة الكاملة؟
+# (bool) Indicate if the application should be fullscreen or not
 fullscreen = 0
 
-# (list) صلاحيات الأندرويد المطلوبة للإنترنت وحفظ الفيديوهات
+# (list) Permissions
 android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
 
-# (int) إصدار Android API المستهدف
+# (int) Target Android API
 android.api = 33
 
-# (int) الحد الأدنى لإصدار الأندرويد المدعوم (Android 5.0)
+# (int) Minimum API required
 android.minapi = 21
 
-# (bool) قبول تراخيص Android SDK تلقائياً
+# (bool) Accept SDK license automatically
 android.accept_sdk_license = True
 
-# (list) المعماريات المدعومة للهواتف الحديثة والقديمة
-android.archs = arm64-v8a, armeabi-v7a
+# (list) The Android architectures to build for (تم التحديد لمعمارية واحدة لسرعة البناء ومنع الأخطاء)
+android.archs = arm64-v8a
 
 [buildozer]
 
-# (int) مستوى إظهار التفاصيل أثناء التجميع (2 يظهر كافة التفاصيل لتشخيص الأخطاء)
+# (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))
 log_level = 2
 
-# (int) إظهار تحذير عند التشغيل بصلاحيات جذر (0 للإيقاف)
+# (int) Display warning if buildozer is run as root (0 = false, 1 = true)
 warn_on_root = 1
-
