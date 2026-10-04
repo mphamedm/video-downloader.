@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout repository
@@ -18,14 +18,19 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
+    - name: Install system dependencies
       run: |
         sudo apt update
-        sudo apt install -y build-essential git ccache libffi-dev libssl-dev openjdk-17-jdk
-        pip install --upgrade pip buildozer cython==0.29.33
+        sudo apt install -y build-essential git ccache libffi-dev libssl-dev \
+          openjdk-17-jdk zip unzip autoconf libtool cmake pkg-config \
+          python3-dev python3-setuptools
+        pip install --upgrade pip
+        pip install cython==0.29.33 buildozer
 
-    - name: Build APK with Buildozer
+    - name: Pre-accept Android SDK Licenses & Build APK
       run: |
+        # قبول كافة تراخيص SDK تلقائياً وتجنب التوقف التفاعلي
+        export APP_ACCEPT_SDK_LICENSE=1
         yes | buildozer -s android debug
 
     - name: Upload APK Artifact
