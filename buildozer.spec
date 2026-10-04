@@ -6,21 +6,20 @@ title = Video Downloader
 # (str) Package name
 package.name = videodownloader
 
-# (str) Package domain (needed for android/ios packaging)
+# (str) Package domain (needed for android packaging)
 package.domain = org.downloader
 
 # (str) Source code where the main.py live
 source.dir = .
 
-# (list) Source files to include (let empty to include all the files)
+# (list) Source files to include
 source.include_exts = py,png,jpg,kv,atlas
 
 # (str) Application version
 version = 0.1
 
-# (list) Application requirements
-# تم حذف openssl لمنع التعارضات مع NDK والاكتفاء بـ certifi للتشفير
-requirements = python3,kivy,yt-dlp,pyjnius,requests,certifi
+# (list) Application requirements (تثبيت إصدار بايثون المستقر لتفادي مشاكل 3.14)
+requirements = python3==3.11.9,kivy==2.3.1,yt-dlp,pyjnius,requests,certifi
 
 # (str) Supported orientation
 orientation = portrait
@@ -40,13 +39,13 @@ android.minapi = 21
 # (bool) Accept SDK license automatically
 android.accept_sdk_license = True
 
-# (list) The Android architectures to build for (تم التحديد لمعمارية واحدة لسرعة البناء ومنع الأخطاء)
+# (list) The Android architectures to build for
 android.archs = arm64-v8a
 
 [buildozer]
 
-# (int) Log level (0 = error only, 1 = info, 2 = debug (with command output))
+# (int) Log level (0 = error only, 1 = info, 2 = debug)
 log_level = 2
 
-# (int) Display warning if buildozer is run as root (0 = false, 1 = true)
+# (int) Display warning if buildozer is run as root
 warn_on_root = 1
